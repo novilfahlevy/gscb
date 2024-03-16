@@ -23,7 +23,7 @@ gcloud container clusters create nucleus-cluster
 ```
 
 ```bash
-gcloud container clusters get-credentials nucleus-cluster --zone [cluster-zone]
+gcloud container clusters get-credentials nucleus-cluster --zone ZONE
 ```
 
 ```bash
