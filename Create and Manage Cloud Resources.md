@@ -13,13 +13,13 @@ gcloud config set compute/zone ZONE
 ## Task 1: Create a project jumphost instance
 
 ```bash
-gcloud compute instances create nucleus-jumphost-853 --machine-type=e2-micro --network nucleus-vpc
+gcloud compute instances create nucleus-jumphost-853 --machine-type=e2-micro
 ```
 
 ## Task 2: Create a Kubernetes service cluster
 
 ```bash
-gcloud container clusters create nucleus-cluster --network nucleus-vpc
+gcloud container clusters create nucleus-cluster
 ```
 
 ```bash
@@ -41,7 +41,6 @@ kubectl expose deployment hello-server --port=8083 --type="LoadBalancer"
 ```bash
 gcloud compute instance-templates create nucleus-web-server-template \
    --machine-type=e2-medium \
-   --network nucleus-vpc \
    --metadata=startup-script='#! /bin/bash
 apt-get update
 apt-get install -y nginx
