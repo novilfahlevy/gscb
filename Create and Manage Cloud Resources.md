@@ -41,11 +41,11 @@ kubectl expose deployment hello-server --port=8083 --type="LoadBalancer"
 ```bash
 gcloud compute instance-templates create nucleus-web-server-template \
    --machine-type=e2-medium \
-   --metadata=startup-script='#! /bin/bash
+   --metadata=startup-script='#!/bin/bash
 apt-get update
 apt-get install -y nginx
 service nginx start
-sed -i "s/nginx/Google Cloud Platform - \$HOSTNAME/" /var/www/html/index.nginx-debian.html'
+sed -i "s/nginx/Google Cloud Platform - $(hostname)/" /var/www/html/index.nginx-debian.html'
 ```
 
 ### 2. Create a managed instance group based on the template.
